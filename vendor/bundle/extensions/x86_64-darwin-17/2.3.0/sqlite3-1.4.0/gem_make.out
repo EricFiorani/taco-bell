@@ -1,0 +1,67 @@
+current directory: /Users/ericfiorani/taco-bell/vendor/bundle/gems/sqlite3-1.4.0/ext/sqlite3
+/Users/ericfiorani/.rvm/rubies/ruby-2.3.3/bin/ruby -I /Users/ericfiorani/.rvm/rubies/ruby-2.3.3/lib/ruby/site_ruby/2.3.0 -r ./siteconf20190211-84166-5srfpm.rb extconf.rb
+extconf.rb:18: warning: Insecure world writable dir /Users/ericfiorani in PATH, mode 040777
+checking for sqlite3.h... yes
+checking for pthread_create() in -lpthread... yes
+checking for main() in -ldl... yes
+checking for dlopen()... yes
+checking for dlclose()... yes
+checking for dlsym()... yes
+checking for sqlite3_libversion_number() in -lsqlite3... yes
+checking for rb_proc_arity()... yes
+checking for rb_integer_pack()... yes
+checking for sqlite3_initialize()... yes
+checking for sqlite3_backup_init()... yes
+checking for sqlite3_column_database_name()... yes
+checking for sqlite3_enable_load_extension()... yes
+checking for sqlite3_load_extension()... yes
+checking for sqlite3_open_v2()... yes
+checking for sqlite3_prepare_v2()... yes
+checking for sqlite3_int64 in sqlite3.h... yes
+checking for sqlite3_uint64 in sqlite3.h... yes
+creating Makefile
+
+current directory: /Users/ericfiorani/taco-bell/vendor/bundle/gems/sqlite3-1.4.0/ext/sqlite3
+make "DESTDIR=" clean
+
+current directory: /Users/ericfiorani/taco-bell/vendor/bundle/gems/sqlite3-1.4.0/ext/sqlite3
+make "DESTDIR="
+compiling sqlite3.c
+compiling database.c
+database.c:38:9: warning: unused variable 'flags' [-Wunused-variable]
+  VALUE flags;
+        ^
+database.c:724:57: warning: incompatible pointer types passing 'int (VALUE, int, char **, char **)' (aka 'int (unsigned long, int, char **, char **)') to parameter of type 'int (*)(void *, int, char **, char **)' [-Wincompatible-pointer-types]
+    status = sqlite3_exec(ctx->db, StringValuePtr(sql), hash_callback_function, callback_ary, &errMsg);
+                                                        ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/sqlite/3.26.0_1/include/sqlite3.h:406:9: note: passing argument to parameter 'callback' here
+  int (*callback)(void*,int,char**,char**),  /* Callback function */
+        ^
+database.c:724:81: warning: incompatible integer to pointer conversion passing 'VALUE' (aka 'unsigned long') to parameter of type 'void *' [-Wint-conversion]
+    status = sqlite3_exec(ctx->db, StringValuePtr(sql), hash_callback_function, callback_ary, &errMsg);
+                                                                                ^~~~~~~~~~~~
+/usr/local/Cellar/sqlite/3.26.0_1/include/sqlite3.h:407:9: note: passing argument to parameter here
+  void *,                                    /* 1st argument to callback */
+        ^
+database.c:726:57: warning: incompatible pointer types passing 'int (VALUE, int, char **, char **)' (aka 'int (unsigned long, int, char **, char **)') to parameter of type 'int (*)(void *, int, char **, char **)' [-Wincompatible-pointer-types]
+    status = sqlite3_exec(ctx->db, StringValuePtr(sql), regular_callback_function, callback_ary, &errMsg);
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/sqlite/3.26.0_1/include/sqlite3.h:406:9: note: passing argument to parameter 'callback' here
+  int (*callback)(void*,int,char**,char**),  /* Callback function */
+        ^
+database.c:726:84: warning: incompatible integer to pointer conversion passing 'VALUE' (aka 'unsigned long') to parameter of type 'void *' [-Wint-conversion]
+    status = sqlite3_exec(ctx->db, StringValuePtr(sql), regular_callback_function, callback_ary, &errMsg);
+                                                                                   ^~~~~~~~~~~~
+/usr/local/Cellar/sqlite/3.26.0_1/include/sqlite3.h:407:9: note: passing argument to parameter here
+  void *,                                    /* 1st argument to callback */
+        ^
+5 warnings generated.
+compiling aggregator.c
+compiling exception.c
+compiling backup.c
+compiling statement.c
+linking shared-object sqlite3/sqlite3_native.bundle
+
+current directory: /Users/ericfiorani/taco-bell/vendor/bundle/gems/sqlite3-1.4.0/ext/sqlite3
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 sqlite3_native.bundle ./.gem.20190211-84166-162hyq8/sqlite3
