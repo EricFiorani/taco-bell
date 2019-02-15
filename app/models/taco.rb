@@ -3,6 +3,8 @@ class Taco < ApplicationRecord
   has_many :ratings
   has_many :users, through: :ratings
 
+  validates :name, :category, presence: true
+
   def full_name
   end
 
@@ -24,5 +26,5 @@ class Taco < ApplicationRecord
       taco.most_popular?
     end
   end
-  
+
 end
